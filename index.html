@@ -1,47 +1,72 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Cámara Espía A9</title>
+    <title>Mini Câmera Espiã A9</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-    <div class="container">
-        <div class="image">
-            
-        </div>
-        
-        <div class="info">
-            <h1>Mini Cámara Espía</h1>
-            <h2>A9 / 720p HD</h2>
-            <p>Proteja lo que más importa con discreción y eficiencia.</p>
-
-            <div class="features">
-                <ul>
-                    <li><span>📶</span> <span>Conectividad Wi-Fi Estable</span></li>
-                    <li><span>🎥</span> <span>Calidad de Imagen en Alta Definición</span></li>
-                    <li><span>🕵️</span> <span>Detección de Movimiento</span></li>
-                    <li><span>👁️</span> <span>Ángulo de Visión Amplio</span></li>
-                    <li><span>🔄</span> <span>Grabación Continua en Bucle</span></li>
-                    <li><span>🔧</span> <span>Instalación Versátil y Sencilla</span></li>
-                </ul>
-            </div>
-
-            <button id="buy-btn" class="buy-button">COMPRAR AHORA</button>
-
-            <div class="discount">
-                <p>📦 Paga al recibir - <span>10% de descuento</span></p>
-            </div>
-
-            <div id="countdown">Oferta termina en: <span id="timer"></span></div>
+    <!-- Popup de Promoção -->
+    <div id="caixa-promocao" class="caixa-promocao">
+        <div class="conteudo-popup">
+            <span class="botao-fechar" onclick="fecharPopupPromocao()">&times;</span>
+            <h2>🎉 Parabéns! Você ganhou 10% de desconto!</h2>
+            <p>🛍️ Pague somente ao receber o produto!</p>
+            <button onclick="fecharPopupPromocao()">ENTENDI!</button>
         </div>
     </div>
 
-    <div id="notifications-container"></div>
+    <!-- Popup de Visualizações -->
+    <div id="caixa-visualizadores" class="caixa-visualizadores">
+        👀 <span id="contador-visualizadores">35</span> pessoas comprando agora!
+    </div>
 
+    <!-- Container Principal -->
+    <div class="caixa-principal">
 
+        <!-- Imagem do Produto -->
+        <div class="imagem-produto">
+            <!-- Adicione a imagem aqui -->
+        </div>
+
+        <!-- Informações do Produto -->
+        <div class="informacoes">
+            <h1>Mini Câmera Espiã</h1>
+            <h2>A9 / 720p HD</h2>
+            <p>Proteja o que mais importa com discrição e eficiência.</p>
+
+            <!-- Lista de Recursos -->
+            <div class="lista-recursos">
+                <ul>
+                    <li><span>📶</span> Conectividade Wi-Fi Estável</li>
+                    <li><span>🎥</span> Qualidade de Imagem em Alta Definição</li>
+                    <li><span>🕵️</span> Detecção de Movimento</li>
+                    <li><span>👁️</span> Ângulo de Visão Amplo</li>
+                    <li><span>🔄</span> Gravação Contínua em Loop</li>
+                    <li><span>🔧</span> Instalação Versátil e Simples</li>
+                </ul>
+            </div>
+
+            <!-- Botão de Compra -->
+            <button id="botao-comprar" class="botao-comprar">COMPRAR AGORA</button>
+
+            <!-- Contagem Regressiva -->
+            <div id="contador">
+                OFERTA TERMINA EM: <span id="temporizador"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Container de Notificações -->
+    <div id="caixa-notificacoes"></div>
+
+    <!-- Script -->
     <script src="script.js"></script>
+
 </body>
 </html>
+

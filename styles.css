@@ -14,7 +14,7 @@ body {
 }
 
 /* CONTAINER PRINCIPAL */
-.container {
+.caixa-principal {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,14 +26,14 @@ body {
 }
 
 /* IMAGEM DO PRODUTO */
-.image img {
+.imagem-produto img {
     width: 100%;
     max-width: 500px;
     border-radius: 10px;
 }
 
 /* INFORMAÇÕES DO PRODUTO */
-.info {
+.informacoes {
     background-color: #111;
     padding: 20px;
     max-width: 500px;
@@ -53,7 +53,7 @@ h2 {
 }
 
 /* LISTA DE RECURSOS */
-.features ul {
+.lista-recursos ul {
     list-style: none;
     padding: 0;
     text-align: left;
@@ -62,7 +62,7 @@ h2 {
     gap: 10px;
 }
 
-.features li {
+.lista-recursos li {
     font-size: 18px;
     padding: 10px;
     display: flex;
@@ -74,13 +74,13 @@ h2 {
     cursor: pointer;
 }
 
-.features li:hover {
+.lista-recursos li:hover {
     background: rgba(255, 165, 0, 0.7);
     transform: scale(1.05);
 }
 
 /* BOTÃO DE COMPRA */
-.buy-button {
+.botao-comprar {
     background-color: #FF4500;
     color: white;
     font-size: 20px;
@@ -90,32 +90,22 @@ h2 {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 15px;
-    animation: pulse 1.5s infinite;
+    animation: pulsar 1.5s infinite;
 }
 
-@keyframes pulse {
+@keyframes pulsar {
     0% { transform: scale(1); }
     50% { transform: scale(1.1); }
     100% { transform: scale(1); }
 }
 
-.buy-button:hover {
+.botao-comprar:hover {
     transform: scale(1.05);
     box-shadow: 0px 0px 10px rgba(255, 165, 0, 0.8);
 }
 
-/* TARJA VERMELHA */
-.discount {
-    margin-top: 20px;
-    background-color: red;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
 /* CONTAGEM REGRESSIVA */
-#countdown {
+#contador {
     font-size: 18px;
     color: yellow;
     font-weight: bold;
@@ -124,7 +114,7 @@ h2 {
 }
 
 /* NOTIFICAÇÕES ANIMADAS */
-#notifications-container {
+#caixa-notificacoes {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -132,7 +122,7 @@ h2 {
     z-index: 1000;
 }
 
-.notification {
+.notificacao {
     background: #ff5722;
     color: white;
     padding: 10px 15px;
@@ -142,10 +132,10 @@ h2 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     opacity: 0;
     transform: translateY(100px);
-    animation: slideUp 4s ease-in-out forwards;
+    animation: subir 4s ease-in-out forwards;
 }
 
-@keyframes slideUp {
+@keyframes subir {
     0% {
         opacity: 0;
         transform: translateY(100px);
@@ -170,12 +160,12 @@ h2 {
         background-size: cover;
     }
 
-    .container {
+    .caixa-principal {
         padding: 20px;
         width: 95%;
     }
 
-    .info {
+    .informacoes {
         max-width: 90%;
     }
 
@@ -187,24 +177,128 @@ h2 {
         font-size: 20px;
     }
 
-    .features li {
+    .lista-recursos li {
         font-size: 16px;
         padding: 8px;
     }
 
-    .buy-button {
+    .botao-comprar {
         font-size: 18px;
         padding: 10px;
     }
 
-    .discount {
+    .desconto {
         font-size: 16px;
     }
 
-    #notifications-container {
+    #caixa-notificacoes {
         width: 80%;
         right: auto;
         left: 10%;
     }
+}
+
+#caixa-visualizadores {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1000;
+}
+
+/* Estilo para PC (largura maior que 768px) */
+@media (min-width: 768px) {
+    #caixa-visualizadores {
+        bottom: 20px;
+        left: 20px;
+        transform: none;
+    }
+}
+
+/* Estilo para celular (largura menor que 768px) */
+@media (max-width: 767px) {
+    #caixa-visualizadores {
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(10px); }
+    20% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Estilo do popup de desconto */
+.caixa-promocao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.conteudo-popup {
+    background: #fff;
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: aparecer 0.5s ease-in-out;
+}
+
+.conteudo-popup h2 {
+    color: #FF4500;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.conteudo-popup p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.conteudo-popup button {
+    background: #FF4500;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.conteudo-popup button:hover {
+    background: #e03d00;
+}
+
+/* Botão de fechar */
+.botao-fechar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #555;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
 
