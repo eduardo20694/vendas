@@ -16,31 +16,27 @@ body {
 /* CONTAINER PRINCIPAL */
 .caixa-principal {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* Alinha as seções na parte superior */
     padding: 50px 20px;
-    max-width: 600px;
+    max-width: 1200px;
     margin: auto;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
+    flex-wrap: wrap; /* Permite que o layout se ajuste para telas menores */
+    gap: 20px; /* Distância entre as seções */
 }
 
-/* IMAGEM DO PRODUTO */
-.imagem-produto img {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 10px;
-}
-
-/* INFORMAÇÕES DO PRODUTO */
+/* SEÇÃO DE INFORMAÇÕES */
 .informacoes {
     background-color: #111;
     padding: 20px;
     max-width: 500px;
     border-radius: 10px;
     margin-top: 10px;
+    flex: 2;
 }
 
+/* TÍTULOS E TEXTO DAS INFORMAÇÕES */
 h1 {
     font-size: 28px;
     font-weight: bold;
@@ -113,6 +109,47 @@ h2 {
     margin-top: 10px;
 }
 
+/* SEÇÃO DE IMAGENS ADICIONAIS */
+.imagens-adicionais {
+    display: flex; /* Utilizando flexbox para alinhar as imagens lado a lado */
+    gap: 10px; /* Espaçamento entre as imagens */
+    flex-wrap: wrap; /* Permite que as imagens se ajustem para telas menores */
+    margin-top: 10px;
+    justify-content: flex-start; /* Alinha as imagens à esquerda */
+}
+
+.imagem-lado {
+    display: flex; /* Flexbox para alinhar as imagens na linha */
+    gap: 10px; /* Espaçamento entre as imagens */
+    flex-wrap: wrap; /* Permite a quebra de linha quando necessário */
+}
+
+.imagem-item {
+    display: flex; /* Exibe as imagens em linha */
+    gap: 15px; /* Distância entre as imagens */
+    flex-wrap: wrap;
+}
+
+.imagem-item img {
+    width: 30%; /* Ajusta a largura das imagens para que fiquem lado a lado */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra para dar um efeito visual */
+}
+
+/* VÍDEO DO PRODUTO */
+.video-produto {
+    width: 50%; /* Define a largura do vídeo */
+    padding-right: 20px; /* Espaço entre o vídeo e as imagens */
+    margin-bottom: 0; /* Remove o espaço abaixo do vídeo */
+}
+
+.video-produto video {
+    width: 100%; /* Ajusta o tamanho do vídeo */
+    border-radius: 10px;
+}
+
+
 /* NOTIFICAÇÕES ANIMADAS */
 #caixa-notificacoes {
     position: fixed;
@@ -154,7 +191,7 @@ h2 {
     }
 }
 
-/* 🔹 RESPONSIVIDADE PARA CELULAR */
+/* RESPONSIVIDADE PARA CELULAR */
 @media (max-width: 768px) {
     body {
         background-size: cover;
@@ -167,6 +204,15 @@ h2 {
 
     .informacoes {
         max-width: 90%;
+    }
+
+    .video-produto {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .imagem-lado {
+        width: 100%;
     }
 
     h1 {
@@ -185,10 +231,6 @@ h2 {
     .botao-comprar {
         font-size: 18px;
         padding: 10px;
-    }
-
-    .desconto {
-        font-size: 16px;
     }
 
     #caixa-notificacoes {
@@ -219,14 +261,23 @@ h2 {
     }
 }
 
-/* Estilo para celular (largura menor que 768px) */
-@media (max-width: 767px) {
-    #caixa-visualizadores {
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
+/* Responsividade para telas menores que 768px */
+@media (max-width: 768px) {
+    .imagem-item {
+        flex: 1 1 45%; /* Ajuste para telas menores, com as imagens ocupando até 45% */
+        max-width: 45%; /* Limita a largura das imagens */
     }
 }
+
+
+/* Para telas menores que 480px */
+@media (max-width: 480px) {
+    .imagem-item {
+        flex: 1 1 100%; /* As imagens ocupam 100% da largura do container */
+        max-width: 100%; /* Limita a largura das imagens */
+    }
+}
+
 
 @keyframes fadeInOut {
     0% { opacity: 0; transform: translateY(10px); }
@@ -302,3 +353,89 @@ h2 {
     to { opacity: 1; transform: scale(1); }
 }
 
+.testimonials-container {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #111010;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas de tamanho igual */
+    gap: 20px; /* Espaçamento entre os itens */
+}
+
+.testimonial {
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px; /* Ajuste a altura dos quadrados */
+}
+
+.testimonial h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.testimonial p {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+    font-style: italic;
+    flex-grow: 1; /* Faz o parágrafo crescer para preencher o espaço */
+}
+
+.testimonial .author {
+    font-size: 14px;
+    color: #777;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.testimonial h3 span {
+    font-size: 22px;
+    color: #FFD700; /* Estrela dourada */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 1200px) {
+    .testimonials-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 colunas em telas menores */
+    }
+}
+
+@media (max-width: 900px) {
+    .testimonials-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas ainda menores */
+    }
+}
+
+@media (max-width: 600px) {
+    .testimonials-container {
+        grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
+    }
+}
+
+/* Estilo para o título h2 com fundo laranja apenas nas letras */
+.n2 {
+    text-align: center;
+    font-size: 2.5em;
+    background-color: #f39c12; /* Fundo laranja */
+    color: white; /* Cor do texto */
+    border-radius: 25px; /* Bordas arredondadas */
+    padding: 10px 30px; /* Espaçamento interno */
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 1px;
+    display: inline-block; /* Faz com que o título tenha formato de botão */
+    margin-top: 50px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+}
